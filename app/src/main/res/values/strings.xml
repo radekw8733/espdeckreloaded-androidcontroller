@@ -4,4 +4,17 @@
     <string name="welcome_selectionText">Would you like to connect to existing Espdeck configuration or configure it on your own?</string>
     <string name="welcome_setupButton">Configure new</string>
     <string name="welcome_connectButton">Connect to existing</string>
+
+    <string name="configurator_statusText_searching">Searching for Espdeck...</string>
+    <string name="configurator_statusText_wifiFound">Espdeck wifi found. Connecting...</string>
+    <string name="configurator_permRequestFailRationaleDialogTitle">Permission request failed</string>
+    <string name="configurator_permRequestFailRationaleDialogMessage">Location permission is required to WiFi scan for Espdeck and connect to it</string>
+    <string name="configurator_permRequestFailRequestAgain">Request Again</string>
+    <string name="configurator_wifiDialogTitle">Enter WiFi settings</string>
+    <string name="configurator_wifiDialogSSID">WiFi network name (SSID)</string>
+    <string name="configurator_wifiDialogPassword">WiFi password</string>
+    <string name="configurator_wifiDialogDHCPSwitch">Static IP</string>
+    <string name="configurator_wifiDialogNetworkIp">Network IP</string>
+    <string name="configurator_wifiDialogDefaultGateway">Default Gateway</string>
+    <string name="configurator_wifiDialogNetworkMask">Network Mask</string>
 </resources>

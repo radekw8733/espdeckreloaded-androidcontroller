@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/wifiSSID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ems="10"
+        android:hint="@string/configurator_wifiDialogSSID"
+        android:inputType="textPersonName"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/wifiPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ems="10"
+        android:hint="@string/configurator_wifiDialogPassword"
+        android:inputType="textPassword" />
+
+    <Switch
+        android:id="@+id/dhcpSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/configurator_wifiDialogDHCPSwitch" />
+
+    <EditText
+        android:id="@+id/staticIp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:digits="0123456789."
+        android:ems="10"
+        android:hint="@string/configurator_wifiDialogNetworkIp"
+        android:inputType="number"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/defaultGateway"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:digits="0123456789."
+        android:ems="10"
+        android:hint="@string/configurator_wifiDialogDefaultGateway"
+        android:inputType="number"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/networkMask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:digits="0123456789."
+        android:ems="10"
+        android:hint="@string/configurator_wifiDialogNetworkMask"
+        android:inputType="number"
+        android:visibility="gone" />
+</LinearLayout>

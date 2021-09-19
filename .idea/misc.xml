@@ -5,8 +5,10 @@
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3025" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3025" />
+        <entry key="app/src/main/res/layout/activity_configurator.xml" value="0.296195652173913" />
         <entry key="app/src/main/res/layout/activity_launcher.xml" value="0.296195652173913" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
+        <entry key="app/src/main/res/layout/configurator_wifisetup.xml" value="0.2907608695652174" />
       </map>
     </option>
   </component>
@@ -15,5 +17,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.296195652173913" />
+      </ProjectState>
+    </option>
   </component>
 </project>
