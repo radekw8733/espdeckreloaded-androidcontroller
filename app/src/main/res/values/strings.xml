@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Espdeck Reloaded</string>
+    <string name="welcome_text">Welcome to Espdeck!</string>
+    <string name="welcome_selectionText">Would you like to connect to existing Espdeck configuration or configure it on your own?</string>
+    <string name="welcome_setupButton">Configure new</string>
+    <string name="welcome_connectButton">Connect to existing</string>
 </resources>
