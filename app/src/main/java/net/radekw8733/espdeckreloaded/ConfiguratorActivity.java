@@ -105,8 +105,11 @@ public class ConfiguratorActivity extends AppCompatActivity {
                         statusText.setText(R.string.configurator_statusText_wifiFound);
                         getApplicationContext().unregisterReceiver(this);
                         connectToEspdeckWifi();
+                        return;
                     }
                 }
+                statusText.setText(R.string.configurator_statusText_stillSearching);
+                wifi.startScan();
             }
         };
         IntentFilter filter = new IntentFilter();
@@ -127,6 +130,13 @@ public class ConfiguratorActivity extends AppCompatActivity {
                 @Override
                 public void onAvailable(@NonNull Network network) {
                     super.onAvailable(network);
+                    connectivityManager.bindProcessToNetwork(network);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            statusText.setText(R.string.configurator_statusText_configuring);
+                        }
+                    });
                     configureEspdeck();
                 }
                 @Override
@@ -147,7 +157,6 @@ public class ConfiguratorActivity extends AppCompatActivity {
                     Log.d("Configurator","Connecting to Espdeck wifi now");
                     wifi.disconnect();
                     wifi.enableNetwork(wifiNetwork.networkId, true);
-                    wifi.reconnect();
                     configureEspdeck();
                     break;
                 }
@@ -190,23 +199,10 @@ public class ConfiguratorActivity extends AppCompatActivity {
                         String wifiPassword = wifiPasswordtext.getText().toString();
                         OkHttpClient client = new OkHttpClient();
                         String url = HttpUrl.parse("http://192.168.4.1/setup").newBuilder().addQueryParameter("wifiSSID",wifiSSID).addQueryParameter("wifiPASS",wifiPassword).build().toString();
-                        try {
-                            Response response = client.newCall(new Request.Builder().url(url).build()).execute();
-                            if (response.isSuccessful()) {
-                                List<WifiConfiguration> list = wifi.getConfiguredNetworks();
-                                for (WifiConfiguration wifiNetwork : list) {
-                                    if (wifiNetwork.SSID.equals("\"" + "Espdeck Reloaded" + "\"")) {
-                                        wifi.removeNetwork(wifiNetwork.networkId);
-                                    }
-                                }
-                            }
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                                /*.enqueue(new Callback() {
+                        client.newCall(new Request.Builder().url(url).build()).enqueue(new Callback() {
                             @Override
                             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-
+                                e.printStackTrace();
                             }
 
                             @Override
@@ -218,7 +214,7 @@ public class ConfiguratorActivity extends AppCompatActivity {
                                     }
                                 }
                             }
-                        });*/
+                        });
                     }})
                 .show();
     }
